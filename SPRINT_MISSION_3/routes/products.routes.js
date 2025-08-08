@@ -1,9 +1,9 @@
 import express from 'express';
 import { PrismaClient } from '@prisma/client';
-import { validateProduct } from '../middlewares/validateProduct.js';
+import validateProduct from '../middlewares/validateProduct.js';
 
 const router = express.Router();
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 router.post('/product', validateProduct, async (req, res) => {
   try {
