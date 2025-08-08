@@ -1,4 +1,5 @@
-const { PrismaClient } = require('@prisma/client');
+import { PrismaClient } from '@prisma/client';
+
 const prisma = new PrismaClient();
 
 async function main() {
@@ -9,23 +10,24 @@ async function main() {
     },
   });
 
-  await prisma.product.createMany({
-    data: [
-      {
-        name: '맥북 프로 14인치',
-        description: '2021년형, 상태 A급',
-        price: 1700000,
-        tags: ['노트북', '애플'],
-        articleId: article.id,
-      },
-      {
-        name: 'LG 그램 16',
-        description: '얇고 가볍습니다.',
-        price: 1300000,
-        tags: ['노트북', 'LG'],
-        articleId: article.id,
-      },
-    ],
+  await prisma.product.create({
+    data: {
+      name: '맥북 프로 14인치',
+      description: '2021년형, 상태 A급',
+      price: 1700000,
+      tags: ['노트북', '애플'],
+      articleId: article.id,
+    },
+  });
+
+  await prisma.product.create({
+    data: {
+      name: 'LG 그램 16',
+      description: '얇고 가볍습니다.',
+      price: 1300000,
+      tags: ['노트북', 'LG'],
+      articleId: article.id,
+    },
   });
 
   console.log('✅ article + Product 시딩 완료');

@@ -1,5 +1,5 @@
-const express = require('express');
-const { PrismaClient } = require('@prisma/client');
+import express from 'express';
+import { PrismaClient } from '@prisma/client';
 
 const router = express.Router();
 const prisma = new PrismaClient();
@@ -21,7 +21,7 @@ router.post('/article', async(req, res) => {
     }
 })
 
-router.get('/prodict/:id', async(req, res) => {
+router.get('/article/:id', async(req, res) => {
     const id = Number(req.params.id);
 
     if(isNaN(id)){
@@ -82,13 +82,13 @@ router.delete('/article/:id' , async(req , res) => {
     }
 })
 
-router.get('/product' , async(req , res) => {
+router.get('/article' , async(req , res) => {
     const {
         page = 1,
         limit = 1,
         search = '',
         sort = 'recent',
-  } = req.query;
+    } = req.query;
 
   const skip = (Number(page) - 1) * Number(limit);
   const take = Number(limit);
@@ -135,3 +135,4 @@ router.get('/product' , async(req , res) => {
   }
 })
 
+export default router;
