@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/main.js",
-    "dev": "node SPRINT_MISSION_3/app.js",
+    "start": "node app.js",
+    "dev": "node app.js",
     "seed": "node SPRINT_MISSION_3/prisma/seed.js"
   },
   "repository": {
