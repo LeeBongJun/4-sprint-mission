@@ -2,7 +2,8 @@
   "name": "sprint_mission_4",
   "version": "1.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node ./src/server.js"
   },
   "author": "",
   "license": "ISC",
