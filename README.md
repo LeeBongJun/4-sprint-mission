@@ -88,26 +88,15 @@
 
 ```prisma
 model User {
-  id            Int             @id @default(autoincrement())
-  email         String          @unique
-  password      String
-  nickname      String
-  image         String?
-  createdAt     DateTime        @default(now())
-  updatedAt     DateTime        @updatedAt
   notifications Notification[]
-  products      Product[]
-  posts         Post[]
-  likes         Like[]
 }
-
 model Notification {
-  id        Int      @id @default(autoincrement())
-  userId    Int
-  type      String
-  message   String
-  isRead    Boolean  @default(false)
-  createdAt DateTime @default(now())
+  id          Int       @id @default(autoincrement())
+  userId      Int
+  type        String    // e.g. "PRICE_CHANGE", "COMMENT"
+  message     String
+  isRead      Boolean   @default(false)
+  createdAt   DateTime  @default(now())
 
-  user      User     @relation(fields: [userId], references: [id])
+  user        User      @relation(fields: [userId], references: [id])
 }
